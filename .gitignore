@@ -1,0 +1,17 @@
+# Django
+backend/venv/
+backend/__pycache__/
+backend/db.sqlite3
+backend/*.pyc
+backend/.env
+
+# Angular
+skillorbit-frontend/node_modules/
+skillorbit-frontend/dist/
+skillorbit-frontend/.angular/
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
