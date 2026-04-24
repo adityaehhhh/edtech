@@ -39,11 +39,13 @@ export const FloatingChatbot = () => {
           {/* Header */}
           <Flex bg="rgba(168, 85, 247, 0.15)" p={4} justifyContent="space-between" alignItems="center" borderBottom="1px solid rgba(255,255,255,0.05)">
             <Text fontFamily="'Space Grotesk', sans-serif" fontWeight="bold" color="purple.300">SkillOrbit AI</Text>
-            <IconButton aria-label="Close" icon={<X size={18} />} size="xs" variant="ghost" colorScheme="purple" onClick={() => setIsOpen(false)} />
+            <IconButton aria-label="Close" size="xs" variant="ghost" colorScheme="purple" onClick={() => setIsOpen(false)}>
+              <X size={18} />
+            </IconButton>
           </Flex>
 
           {/* Messages */}
-          <VStack flex={1} overflowY="auto" p={4} spacing={4} alignItems="stretch">
+          <VStack flex={1} overflowY="auto" p={4} gap={4} alignItems="stretch">
             {messages.map((msg, i) => (
               <Box key={i} alignSelf={msg.sender === 'user' ? 'flex-end' : 'flex-start'} bg={msg.sender === 'user' ? 'rgba(99, 102, 241, 0.2)' : 'rgba(255,255,255,0.05)'} p={3} borderRadius="lg" maxW="80%">
                 <Text fontSize="sm" color={msg.sender === 'user' ? 'indigo.100' : 'whiteAlpha.900'}>{msg.text}</Text>
@@ -55,7 +57,7 @@ export const FloatingChatbot = () => {
           <Flex p={3} borderTop="1px solid rgba(255,255,255,0.05)">
             <Input 
               size="sm" 
-              variant="filled" 
+              variant="subtle" 
               bg="rgba(0,0,0,0.3)" 
               _hover={{ bg: 'rgba(0,0,0,0.5)' }} 
               _focus={{ bg: 'rgba(0,0,0,0.5)', borderColor: 'purple.400' }}
@@ -66,7 +68,9 @@ export const FloatingChatbot = () => {
               border="none"
               color="white"
             />
-            <IconButton aria-label="Send" icon={<Send size={16} />} size="sm" ml={2} colorScheme="purple" onClick={handleSend} />
+            <IconButton aria-label="Send" size="sm" ml={2} colorScheme="purple" onClick={handleSend}>
+              <Send size={16} />
+            </IconButton>
           </Flex>
         </Box>
       )}
@@ -74,15 +78,19 @@ export const FloatingChatbot = () => {
       {!isOpen && (
         <IconButton
           aria-label="Open Chat"
-          icon={<MessageCircle size={24} />}
           size="lg"
-          isRound
+          borderTopRightRadius="full"
+          borderTopLeftRadius="full"
+          borderBottomRightRadius="full"
+          borderBottomLeftRadius="full"
           colorScheme="purple"
           boxShadow="0 0 20px rgba(168, 85, 247, 0.6)"
           onClick={() => setIsOpen(true)}
           _hover={{ transform: 'scale(1.1)' }}
           transition="all 0.2s"
-        />
+        >
+          <MessageCircle size={24} />
+        </IconButton>
       )}
     </Box>
   );

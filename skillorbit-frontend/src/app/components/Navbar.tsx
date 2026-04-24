@@ -34,7 +34,7 @@ export const GlobalNavbar = ({ role = 'student' }: { role?: string }) => {
           SkillOrbit OS
         </Text>
 
-        <HStack spacing={8} display={{ base: 'none', md: 'flex' }}>
+        <HStack gap={8} display={{ base: 'none', md: 'flex' }}>
           {items.map((item, id) => (
             <Text key={id} color="whiteAlpha.800" _hover={{ color: 'white', cursor: 'pointer', transform: 'scale(1.05)' }} transition="all 0.2s">
               {item}
